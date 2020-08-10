@@ -1,13 +1,18 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Axios from 'axios';
 
 class App extends React.Component {
-    state = { advice: '' };
+    state = {
+        advice: ''
+    };
 
     componentDidMount() {
         this.fetchAdvice();
+
+
     }
+
 
     fetchAdvice = () => {
         Axios.get('https://api.adviceslip.com/advice')
@@ -18,7 +23,14 @@ class App extends React.Component {
             .catch((error) => {
                 console.log(error)
             })
+
+
     }
+
+
+
+
+
 
     render() {
         const { advice } = this.state;
@@ -29,6 +41,7 @@ class App extends React.Component {
 
                 </div>
                 <button onClick={this.fetchAdvice} className='btn'>
+
                     <span>Next One</span>
                 </button>
             </div>
